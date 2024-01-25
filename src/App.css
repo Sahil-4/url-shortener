@@ -1,0 +1,25 @@
+.navbar {
+    height: 52px;
+    background: #473d3d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 18px;
+}
+
+.profile {
+    width: 240px;
+    background: #343b39;
+    margin: auto 0;
+    text-align: center;
+    padding: 5px;
+}
+
+.profile>* {
+    background: #343b39;
+    height: 32px;
+    width: 70%;
+    margin: 12px auto;
+    padding: 2px 0;
+    display: block;
+}
