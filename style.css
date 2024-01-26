@@ -19,6 +19,10 @@ body {
     background: #000000;
 }
 
+#root {
+    height: 100%;
+}
+
 .text {
     color: inherit;
     text-decoration: none;

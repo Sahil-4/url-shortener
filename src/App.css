@@ -29,3 +29,54 @@
     padding: 2px 0;
     display: block;
 }
+
+.auth-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background: #ddb6b608;
+    width: 480px;
+    margin: auto;
+    text-align: center;
+    padding: 18px;
+}
+
+.form-container h2 {
+    padding: 8px;
+}
+
+.form-container input,
+.form-container button {
+    height: 40px;
+    color: #ffffff;
+    background: #000000;
+    border: 1px solid #ffffff;
+    outline: none;
+    width: 64px;
+    margin: 12px 8px;
+}
+
+.form-container input {
+    width: 320px;
+    display: block;
+    padding: 3px;
+    margin: 15px auto;
+}
+
+.form-container input::placeholder {
+    color: #ffffff;
+}
+
+.form-container input:focus {
+    width: 330px;
+}
+
+.form-container button:hover,
+.form-container button:active {
+    color: #000000;
+    background: #ffffff;
+}
