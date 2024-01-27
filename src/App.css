@@ -80,3 +80,41 @@
     color: #000000;
     background: #ffffff;
 }
+
+.url-shortener-box {
+    height: 180px;
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #473d3d;
+    margin: 12px auto;
+}
+
+.url-shortener-box input,
+.url-shortener-box button {
+    height: 42px;
+    width: 72px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    background: #000000;
+    border: 1px solid #ffffff;
+    outline: none;
+    margin: 12px 8px;
+}
+
+.url-shortener-box input {
+    width: 480px;
+    height: 42px;
+}
+
+.url-shortener-box inputshort {
+    width: 360px;
+}
+
+.url-shortener-box button:hover,
+.url-shortener-box button:active {
+    color: #000000;
+    background: #ffffff;
+}
