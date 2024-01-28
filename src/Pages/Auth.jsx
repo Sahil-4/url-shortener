@@ -50,7 +50,7 @@ function Auth() {
           {login ? "Login" : "Sign up"}
         </button>
         <p>
-          {login ? "Already" : "Don't"} have an account?
+          {login ? "Don't" : "Already"} have an account?
           <span className="pointer" onClick={() => setLogin(!login)}>
             {login ? " Sign up here" : " Login here"}
           </span>
