@@ -1,6 +1,6 @@
 .navbar {
     height: 52px;
-    background: #473d3d;
+    background: var(--navbar);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,12 +14,12 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: #00000001;
+    background: transparent;
 }
 
 .profile {
     width: 240px;
-    background: #343b39;
+    background: var(--bg);
     margin: auto 0;
     text-align: center;
     padding: 5px;
@@ -30,19 +30,23 @@
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    background: #5b756e;
+    background: var(--secondary);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.profile>* {
-    background: #343b39;
+.profile * {
+    background: var(--navbar);
     height: 38px;
     width: 70%;
     margin: 12px auto;
     padding: 2px 0;
     display: block;
+}
+
+.profile h3 {
+    background: transparent;
 }
 
 .auth-container {
@@ -53,7 +57,8 @@
 }
 
 .form-container {
-    background: #ddb6b608;
+    color: var(--text);
+    background: var(--secondary);
     width: 480px;
     margin: auto;
     text-align: center;
@@ -69,9 +74,9 @@
 .form-container button {
     height: 40px;
     font-size: 1rem;
-    color: #ffffff;
-    background: #000000;
-    border: 1px solid #ffffff;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--text);
     outline: none;
     width: 86px;
     margin: 12px 8px;
@@ -85,7 +90,7 @@
 }
 
 .form-container input::placeholder {
-    color: #ffffff;
+    color: var(--text);
 }
 
 .form-container input:focus {
@@ -94,8 +99,8 @@
 
 .form-container button:hover,
 .form-container button:active {
-    color: #000000;
-    background: #ffffff;
+    color: var(--bg);
+    background: var(--text);
 }
 
 .url-shortener-box {
@@ -105,7 +110,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #473d3d;
+    background: var(--navbar);
     margin: 12px auto;
 }
 
@@ -114,9 +119,9 @@
     height: 42px;
     width: 72px;
     font-size: 1rem;
-    color: #ffffff;
-    background: #000000;
-    border: 1px solid #ffffff;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--text);
     outline: none;
     margin: 12px 8px;
 }
@@ -124,6 +129,11 @@
 .url-shortener-box input {
     width: 480px;
     height: 42px;
+    padding: 0px 5px;
+}
+
+.url-shortener-box input::placeholder {
+    color: var(--text);
 }
 
 .url-shortener-box inputshort {
@@ -132,39 +142,39 @@
 
 .url-shortener-box button:hover,
 .url-shortener-box button:active {
-    color: #000000;
-    background: #ffffff;
+    color: var(--bg);
+    background: var(--text);
 }
 
 .list {
     height: 480px;
-    width: 480px;
+    width: 520px;
     margin: auto;
-    background: #343b39;
+    background: var(--navbar);
     overflow: hidden scroll;
 }
 
 .list::-webkit-scrollbar {
-    background: #ffffff;
+    background: var(--text);
 }
 
 .list::-webkit-scrollbar-thumb {
-    background: #5b756e;
+    background: var(--secondary);
 }
 
 .url-box {
     height: 52px;
     width: 420px;
     margin: 5px auto;
-    color: #000000;
-    background: #5b756e;
+    color: var(--text);
+    background: var(--secondary);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
 .url-box *:hover {
-    color: #ffffff;
+    color: var(--navbar);
 }
 
 .url-box img {

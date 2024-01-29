@@ -20,6 +20,7 @@ function URLShortenerBox() {
           type="text"
           name="url"
           value={url}
+          placeholder="Enter URL here"
           onChange={(e) => setUrl(e.target.value)}
         />
         <div>
