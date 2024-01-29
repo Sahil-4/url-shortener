@@ -135,3 +135,38 @@
     color: #000000;
     background: #ffffff;
 }
+
+.list {
+    height: 480px;
+    width: 480px;
+    margin: auto;
+    background: #343b39;
+    overflow: hidden scroll;
+}
+
+.list::-webkit-scrollbar {
+    background: #ffffff;
+}
+
+.list::-webkit-scrollbar-thumb {
+    background: #5b756e;
+}
+
+.url-box {
+    height: 52px;
+    width: 420px;
+    margin: 5px auto;
+    color: #000000;
+    background: #5b756e;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.url-box *:hover {
+    color: #ffffff;
+}
+
+.url-box img {
+    height: 32px;
+}
