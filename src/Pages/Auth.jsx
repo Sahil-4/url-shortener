@@ -1,25 +1,49 @@
 import { useState } from "react";
 
 function Auth() {
-  const [login, setLogin] = useState(true);
-  const [user, setUser] = useState({ username: "", email: "", password: "" });
+  const [mode, setMode] = useState("login");
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+    otp: "",
+  });
+
+  const switchMode = () => {
+    setMode(mode === "login" ? "signup" : "login");
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(login ? "login" : "sign up");
     console.log(user);
+    if (mode === "login") {
+      // handle login
+      return;
+    }
+    if (mode == "signup") {
+      // send otp
+      setMode("otp");
+      return;
+    }
+    if (mode === "otp") {
+      // handle otp verification
+      return;
+    }
   };
 
   return (
     <div className="auth-container">
       <form className="form-container" onSubmit={handleSubmit}>
-        <h2>{login ? "Welcome Back" : "Create a New Account"}</h2>
-        {!login && (
+        <h2>
+          {mode === "otp" ? "Verify OTP"
+            : mode === "signup" ? "Create a New Account" : "Welcome Back"}
+        </h2>
+        {mode === "signup" && (
           <input
             name="username"
             type="text"
             placeholder="Enter your username here"
-            required="true"
+            required={true}
             value={user.username}
             onChange={(e) => {
               setUser({ ...user, [e.target.name]: e.target.value });
@@ -30,31 +54,48 @@ function Auth() {
           name="email"
           type="email"
           placeholder="Enter your email here"
-          required="true"
+          required={true}
           value={user.email}
+          disabled={mode === "otp"}
           onChange={(e) => {
             setUser({ ...user, [e.target.name]: e.target.value });
           }}
         />
-        <input
-          name="password"
-          type="password"
-          placeholder="Enter your password here"
-          required="true"
-          value={user.password}
-          onChange={(e) => {
-            setUser({ ...user, [e.target.name]: e.target.value });
-          }}
-        />
+        {mode === "otp" && (
+          <input
+            name="otp"
+            type="number"
+            placeholder="Enter the otp here"
+            required={true}
+            value={user.otp}
+            onChange={(e) => {
+              setUser({ ...user, [e.target.name]: e.target.value });
+            }}
+          />
+        )}
+        {mode !== "otp" && (
+          <input
+            name="password"
+            type="password"
+            placeholder="Enter your password here"
+            required={true}
+            value={user.password}
+            onChange={(e) => {
+              setUser({ ...user, [e.target.name]: e.target.value });
+            }}
+          />
+        )}
         <button className="pointer" type="submit">
-          {login ? "Login" : "Sign up"}
+          {mode === "otp" ? "Verify" : mode === "signup" ? "Sign up" : "Login"}
         </button>
-        <p>
-          {login ? "Don't" : "Already"} have an account?
-          <span className="pointer" onClick={() => setLogin(!login)}>
-            {login ? " Sign up here" : " Login here"}
-          </span>
-        </p>
+        {mode !== "otp" && (
+          <p>
+            {mode === "login" ? "Don't" : "Already"} have an account?
+            <span className="pointer" onClick={switchMode}>
+              {mode === "login" ? " Sign up" : " Login"} here
+            </span>
+          </p>
+        )}
       </form>
     </div>
   );
