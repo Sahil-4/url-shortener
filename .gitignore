@@ -27,3 +27,6 @@ dist-ssr
 temp.*
 *.temp
 
+# Keys 
+.env
+.env.production
