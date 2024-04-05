@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Profile({ logOut }) {
+function Profile({ logOut, deactivate, profile }) {
   const [view, setView] = useState("close");
 
   const handleOpen = () => {
@@ -15,14 +15,14 @@ function Profile({ logOut }) {
     <>
       {view === "close" ? (
         <div className={"pointer profile profile-close"} onClick={handleOpen}>
-          A
+          { profile?.username.charAt(0) }
         </div>
       ) : (
         <>
           <div className="profile-wrapper" onClick={handleClose}></div>
           <div className="profile">
-            <h3 className="text pointer">Your Name</h3>
-            <button className="text pointer" onClick={logOut}>
+            <h3 className="text pointer">{ profile?.username }</h3>
+            <button className="text pointer" onClick={deactivate}>
               Deactivate Account
             </button>
             <button className="text pointer" onClick={logOut}>

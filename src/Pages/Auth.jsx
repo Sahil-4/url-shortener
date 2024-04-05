@@ -1,6 +1,12 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login, requestOTP, signup } from "../Redux/features/authSlice";
+import { useNavigate } from "react-router-dom";
 
 function Auth() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [mode, setMode] = useState("login");
   const [user, setUser] = useState({
     username: "",
@@ -9,24 +15,29 @@ function Auth() {
     otp: "",
   });
 
-  const switchMode = () => {
-    setMode(mode === "login" ? "signup" : "login");
-  };
+  const switchMode = () => setMode(mode === "login" ? "signup" : "login");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
     if (mode === "login") {
       // handle login
+      dispatch(login(user)).then(
+        (res) => res.payload?.data?.success && navigate("/")
+      );
       return;
     }
     if (mode == "signup") {
       // send otp
-      setMode("otp");
+      dispatch(requestOTP(user)).then(
+        (res) => res.payload?.data?.success && setMode("otp")
+      );
       return;
     }
     if (mode === "otp") {
       // handle otp verification
+      dispatch(signup(user)).then(
+        (res) => res.payload?.data?.success && navigate("/")
+      );
       return;
     }
   };
