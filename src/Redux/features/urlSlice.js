@@ -4,22 +4,19 @@ import API from "../../Services/API/index.js";
 export const getUrls = createAsyncThunk("get-urls", async () => {
   // fetch urls of user currently logged in
   const response = await API.get("/api/v1/url/get");
-  const data = await response.json();
-  return data;
+  return response;
 });
 
 export const addUrl = createAsyncThunk("add-url", async (url) => {
   // sends a request with an url in body to create a new short url
-  const response = await API.post("/api/v1/url/new", url);
-  const data = await response.json();
-  return data;
+  const response = await API.post("/api/v1/url/new", { original_url: url });
+  return response;
 });
 
 export const deleteUrl = createAsyncThunk("delete-url", async (url) => {
   // delete the url given in request body
-  const response = await API.post("/api/v1/url/get", url);
-  const data = await response.json();
-  return data;
+  const response = await API.post("/api/v1/url/delete", { short_url: url });
+  return response;
 });
 
 const urlSlice = createSlice({
@@ -44,7 +41,7 @@ const urlSlice = createSlice({
     builder.addCase(getUrls.fulfilled, (state, action) => {
       state.isLoading = false;
       state.error = null;
-      state.urls = action.payload;
+      state.urls = action.payload.data.data;
     });
 
     // handle add new url request
@@ -59,7 +56,7 @@ const urlSlice = createSlice({
     builder.addCase(addUrl.fulfilled, (state, action) => {
       state.isLoading = false;
       state.error = null;
-      state.urls.push(action.payload);
+      state.urls.push(action.payload.data.data);
     });
 
     // handle delete url request
@@ -74,7 +71,8 @@ const urlSlice = createSlice({
     builder.addCase(deleteUrl.fulfilled, (state, action) => {
       state.isLoading = false;
       state.error = null;
-      state.urls.pop(action.payload);
+      const deletedUrl = action.payload.data.data;
+      state.urls = state.urls.filter((url) => url._id != deletedUrl._id);
     });
   },
 });
