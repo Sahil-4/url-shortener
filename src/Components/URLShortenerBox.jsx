@@ -1,16 +1,14 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addUrl } from "../Redux/features/urlSlice";
 
 function URLShortenerBox() {
   const [url, setUrl] = useState("");
+  const dispatch = useDispatch();
 
   const shortURL = () => {
     if (url === "") return alert("Add a valid URL");
-    console.log(url);
-  };
-
-  const copyURL = () => {
-    if (url === "") return alert("Add a valid URL");
-    console.log(url);
+    dispatch(addUrl(url));
   };
 
   return (
@@ -26,9 +24,6 @@ function URLShortenerBox() {
         <div>
           <button className="pointer" onClick={shortURL}>
             Short
-          </button>
-          <button className="pointer" onClick={copyURL}>
-            Copy
           </button>
         </div>
       </div>
