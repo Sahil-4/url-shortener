@@ -81,7 +81,6 @@ const authSlice = createSlice({
     builder.addCase(login.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.error.message;
-      console.log(action);
     });
     builder.addCase(login.fulfilled, (state, action) => {
       state.isLoading = false;
