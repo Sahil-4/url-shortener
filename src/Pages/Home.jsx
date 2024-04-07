@@ -6,10 +6,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import { logout } from "../Redux/features/authSlice";
+import { getUrls } from "../Redux/features/urlSlice";
+import Loader from "../Components/Loader";
 
 function Home() {
-  const dispatch = useDispatch();
   const userState = useSelector((state) => state.user);
+  const urlState = useSelector((state) => state.url);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,6 +21,11 @@ function Home() {
     if (jwtDecode(token).exp < Date.now() / 1000) dispatch(logout());
   }, [dispatch, navigate, userState.profile]);
 
+  useEffect(() => {
+    dispatch(getUrls());
+  }, [dispatch]);
+
+  if (urlState.isLoading) return <Loader />;
   return (
     <>
       <Navbar />

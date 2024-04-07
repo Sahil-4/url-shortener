@@ -1,7 +1,6 @@
-import { useEffect } from "react";
 import URLBox from "./URLBox";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteUrl, getUrls } from "../Redux/features/urlSlice";
+import { deleteUrl } from "../Redux/features/urlSlice";
 
 function URLList() {
   const urlState = useSelector((state) => state.url);
@@ -14,10 +13,6 @@ function URLList() {
   const deleteURL = (url) => {
     dispatch(deleteUrl(url));
   };
-
-  useEffect(() => {
-    dispatch(getUrls());
-  }, [dispatch]);
 
   return (
     <div className="container list">

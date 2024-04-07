@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login, requestOTP, signup } from "../Redux/features/authSlice";
 import { useNavigate } from "react-router-dom";
+import Loader from "../Components/Loader";
 
 function Auth() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const userState = useSelector((state) => state.user);
 
   const [mode, setMode] = useState("login");
   const [user, setUser] = useState({
@@ -42,6 +44,7 @@ function Auth() {
     }
   };
 
+  if (userState.isLoading) return <Loader />;
   return (
     <div className="auth-container">
       <form className="form-container" onSubmit={handleSubmit}>
