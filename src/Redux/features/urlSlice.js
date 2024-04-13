@@ -56,7 +56,7 @@ const urlSlice = createSlice({
     builder.addCase(addUrl.fulfilled, (state, action) => {
       state.isLoading = false;
       state.error = null;
-      state.urls.push(action.payload.data.data);
+      state.urls.unshift(action.payload.data.data);
     });
 
     // handle delete url request
