@@ -22,7 +22,7 @@ function URLShortenerBox() {
           onChange={(e) => setUrl(e.target.value)}
         />
         <div>
-          <button className="pointer" onClick={shortURL}>
+          <button className="pointer" onClick={shortURL} title="short url">
             Short
           </button>
         </div>

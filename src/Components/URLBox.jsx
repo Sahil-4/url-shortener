@@ -5,8 +5,8 @@ function URLBox({ url, copyURL, deleteURL }) {
   return (
     <div className="url-box">
       <Link className="text" to={url} target="_blank">{url}</Link>
-      <MdContentCopy onClick={() => copyURL(url)} />
-      <MdDelete onClick={() => deleteURL(url)} />
+      <MdContentCopy onClick={() => copyURL(url)} tabIndex="0" title="copy url" />
+      <MdDelete onClick={() => deleteURL(url)} tabIndex="0" title="delete url" />
     </div>
   );
 }

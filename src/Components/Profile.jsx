@@ -14,9 +14,9 @@ function Profile({ logOut, deactivate, profile }) {
   return (
     <>
       {view === "close" ? (
-        <div className={"pointer profile profile-close"} onClick={handleOpen}>
+        <button className={"pointer profile profile-close"} onClick={handleOpen} title="open profile">
           { profile?.username.charAt(0) }
-        </div>
+        </button>
       ) : (
         <>
           <div className="profile-wrapper" onClick={handleClose}></div>

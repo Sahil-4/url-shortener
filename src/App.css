@@ -29,11 +29,14 @@
 .profile-close {
     height: 40px;
     width: 40px;
+    font-size: 1.2rem;
     border-radius: 50%;
     background: var(--secondary);
+    color: var(--text);
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
 }
 
 .profile * {
@@ -123,7 +126,6 @@
     color: var(--text);
     background: var(--bg);
     border: 1px solid var(--text);
-    outline: none;
     margin: 12px 8px;
 }
 
