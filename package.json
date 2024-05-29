@@ -1,8 +1,9 @@
 {
   "name": "url-shortener-frontend",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Alpha",
+  "repository": "https://github.com/Sahil-4/url-shortener",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -29,6 +29,7 @@ and backend here : [https://a-short.onrender.com/](https://a-short.onrender.com/
 - **react-icons** : for icons.
 - **react-router-dom** : to create in app routing.
 - **dotenv** : to use keys securely.
+- **pwa support** : can be installed on devices like a native app.
 - See backend github repository to know about backend part.
 
 ### Installation and Setup

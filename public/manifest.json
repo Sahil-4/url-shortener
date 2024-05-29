@@ -1,0 +1,17 @@
+{
+  "name": "URL Shortener app",
+  "short_name": "URL Shortener",
+  "description": "url shortener app with email verification created using mern stack",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#1D1128",
+  "icons": [
+    {
+      "src": "/icon_258.png",
+      "sizes": "258x258",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+}
